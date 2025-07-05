@@ -1,9 +1,10 @@
 import Image from "next/image"
 import { useState } from "react"
 import { assets } from "@/assets/assets"
+import type { PromptBoxPropsType } from "./promptBoxType"
 
 
-const PromptBox = () => {
+const PromptBox = ({ isLoading, setIsLoading }: PromptBoxPropsType) => {
     const [prompt, setPrompt] = useState<string>('')
     return (
         <form className={`w-full ${false ? `max-w-3zl` : `max-w-2xl`} bg-[#404045] p-4 rounded-3xl mt-4 transition-all`}>
