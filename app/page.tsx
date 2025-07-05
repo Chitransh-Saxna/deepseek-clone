@@ -13,7 +13,9 @@ const Home = () => {
   return (
     <div>
       <div className="flex h-screen">
+
         <Sidebar expand={expand} setExpand={setExpand} />
+
         <div className="flex-1 flex  flex-col items-center justify-center px-4 pb-8 bg-[#292a2d] text-white relative">
           <div className="md:hidden absolute px-4 top-6 flex items-center justify-between w-full">
             <Image onClick={() => setExpand(prev => !prev)} className="rotate-180" src={assets.menu_icon} alt="menu_icon" />
@@ -30,7 +32,8 @@ const Home = () => {
             <div>
             </div>}
 
-          <PromptBox />
+          <PromptBox isLoading={isLoading} setIsLoading={setIsLoading} />
+
           <p className="text-xs absolute bottom-1 text-gray-500">AI-generated, for reference only</p>
         </div>
       </div>
