@@ -1,11 +1,14 @@
 import Image from "next/image"
-import type { SidebarPropsType } from "./sidebarTypes"
-import { assets } from "@/assets/assets"
+import { useState } from "react"
 import { useClerk, UserButton } from "@clerk/nextjs"
 import { useAppContext } from "@/context/AppContext"
+import ChatLabel from "../chatlabel/ChatLabel"
+import { assets } from "@/assets/assets"
+import type { SidebarPropsType, OpenMenuType } from "./sidebarTypes"
 
 const Sidebar = ({ expand, setExpand }: SidebarPropsType) => {
 
+    const [openMenu, setOpenMenu] = useState<OpenMenuType>({ id: 0, open: false });
     const { openSignIn } = useClerk();
     const { user } = useAppContext()!
 
@@ -34,7 +37,7 @@ const Sidebar = ({ expand, setExpand }: SidebarPropsType) => {
 
                 <div className={`mt-8 text-white/25 text-sm ${expand ? `block` : `hidden`}`}>
                     <p className="my-1">Recents</p>
-                    {/* --chatelable-- */}
+                    <ChatLabel openMenu={openMenu} setOpenMenu={setOpenMenu} />
                 </div>
             </div>
             <div>
