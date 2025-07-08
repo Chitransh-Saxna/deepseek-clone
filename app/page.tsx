@@ -1,5 +1,6 @@
 'use client';
 import { assets } from "@/assets/assets";
+import Message from "@/components/message/Message";
 import PromptBox from "@/components/prompt_box/PromptBox";
 import Sidebar from "@/components/sidebar/Sidebar";
 import Image from "next/image";
@@ -21,6 +22,7 @@ const Home = () => {
             <Image onClick={() => setExpand(prev => !prev)} className="rotate-180" src={assets.menu_icon} alt="menu_icon" />
             <Image className="opacity-70" src={assets.chat_icon} alt="chat_icon" />
           </div>
+
           {messages.length === 0 ?
             <>
               <div className="flex items-center gap-3">
@@ -30,10 +32,9 @@ const Home = () => {
               <p className="text-sm mt-2">How can i help you today?</p>
             </> :
             <div>
+              <Message role="user" content="what is next js" />
             </div>}
-
           <PromptBox isLoading={isLoading} setIsLoading={setIsLoading} />
-
           <p className="text-xs absolute bottom-1 text-gray-500">AI-generated, for reference only</p>
         </div>
       </div>
