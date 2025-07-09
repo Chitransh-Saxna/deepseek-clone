@@ -3,6 +3,6 @@ import type { OpenMenuType } from "../sidebar/sidebarTypes"
 
 export type ChatLabelPropType = {
     openMenu: OpenMenuType;
-    setOpenMenu: Dispatch<SetStateAction<OpenMenuType>>
+    setOpenMenu?: Dispatch<SetStateAction<OpenMenuType>>
 }
 

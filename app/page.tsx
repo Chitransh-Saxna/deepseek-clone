@@ -8,7 +8,7 @@ import { useState } from "react"
 
 const Home = () => {
   const [expand, setExpand] = useState<boolean>(false);
-  const [messages, setMessages] = useState<string[]>([]);
+  const [messages] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   return (
